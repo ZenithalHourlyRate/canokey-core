@@ -1,3 +1,7 @@
+# Note
+
+This is for Canokey ESP32 Implementation
+
 # Canokey Core
 
 [![Tests](https://github.com/canokeys/canokey-core/workflows/tests/badge.svg?branch=master)](https://github.com/canokeys/canokey-core/actions?query=branch%3Amaster)
