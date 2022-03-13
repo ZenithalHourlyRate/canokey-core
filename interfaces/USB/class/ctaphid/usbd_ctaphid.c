@@ -106,7 +106,7 @@ uint8_t USBD_CTAPHID_SendReport(USBD_HandleTypeDef *pdev, uint8_t *report, uint1
     int retry = 0;
     while (*state != CTAPHID_IDLE) {
       // if reports are not being processed on host, we may get stuck here
-      if (++retry > 50) return USBD_BUSY;
+      //if (++retry > 50) return USBD_BUSY;
       device_delay(1);
     }
     hid_handle.state = CTAPHID_BUSY;
