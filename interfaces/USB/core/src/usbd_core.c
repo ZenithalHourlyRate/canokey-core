@@ -283,12 +283,12 @@ USBD_StatusTypeDef USBD_LL_DataInStage(USBD_HandleTypeDef *pdev, uint8_t epnum, 
 
 USBD_StatusTypeDef USBD_LL_Reset(USBD_HandleTypeDef *pdev) {
   /* Open EP0 OUT */
-  USBD_LL_OpenEP(pdev, 0x00, USBD_EP_TYPE_CTRL, USB_MAX_EP0_SIZE);
+  //USBD_LL_OpenEP(pdev, 0x00, USBD_EP_TYPE_CTRL, USB_MAX_EP0_SIZE);
 
   pdev->ep_out[0].maxpacket = USB_MAX_EP0_SIZE;
 
   /* Open EP0 IN */
-  USBD_LL_OpenEP(pdev, 0x80, USBD_EP_TYPE_CTRL, USB_MAX_EP0_SIZE);
+  //USBD_LL_OpenEP(pdev, 0x80, USBD_EP_TYPE_CTRL, USB_MAX_EP0_SIZE);
 
   pdev->ep_in[0].maxpacket = USB_MAX_EP0_SIZE;
   /* Upon Reset call user call back */
