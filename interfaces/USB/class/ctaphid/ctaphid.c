@@ -171,6 +171,8 @@ uint8_t CTAPHID_Loop(uint8_t wait_for_user) {
     channel.bcnt_current += copied;
   }
 
+  USBD_CTAPHID_DataOut_Finish();
+
   uint8_t ret = LOOP_SUCCESS;
   if (channel.bcnt_current == channel.bcnt_total) {
     channel.expire = UINT32_MAX;

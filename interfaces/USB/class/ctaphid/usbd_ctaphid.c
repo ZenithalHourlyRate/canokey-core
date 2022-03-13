@@ -96,7 +96,12 @@ uint8_t USBD_CTAPHID_DataIn() {
 
 uint8_t USBD_CTAPHID_DataOut(USBD_HandleTypeDef *pdev) {
   CTAPHID_OutEvent(hid_handle.report_buf);
-  USBD_LL_PrepareReceive(pdev, EP_OUT(ctap_hid), hid_handle.report_buf, USBD_CTAPHID_REPORT_BUF_SIZE);
+  return USBD_OK;
+}
+
+
+uint8_t USBD_CTAPHID_DataOut_Finish() {
+  USBD_LL_PrepareReceive(&usb_device, EP_OUT(ctap_hid), hid_handle.report_buf, USBD_CTAPHID_REPORT_BUF_SIZE);
   return USBD_OK;
 }
 
