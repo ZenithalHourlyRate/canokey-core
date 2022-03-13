@@ -10,11 +10,13 @@
 
 #define APDU_BUFFER_SIZE 1340
 
+#define DEBUG_OUTPUT
 #ifdef DEBUG_OUTPUT
+int esp_rom_printf(const char *fmt, ...);
+#define printf esp_rom_printf
 #include <crypto-util.h>
-#include <stdio.h>
-#define DBG_MSG(format, ...) printf("[DBG] %s(%d): " format, __func__, __LINE__, ##__VA_ARGS__)
-#define ERR_MSG(format, ...) printf("[ERR] %s(%d): " format, __func__, __LINE__, ##__VA_ARGS__)
+#define DBG_MSG(format, ...) esp_rom_printf("[DBG] %s(%d): " format, __func__, __LINE__, ##__VA_ARGS__)
+#define ERR_MSG(format, ...) esp_rom_printf("[ERR] %s(%d): " format, __func__, __LINE__, ##__VA_ARGS__)
 #define PRINT_HEX(...) print_hex(__VA_ARGS__)
 #else
 #define DBG_MSG(...) do {} while(0)
